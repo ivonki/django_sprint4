@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'pages.apps.PagesConfig',
-    'django_bootstrap5',
+    'django_bootstrap5'
+
 ]
 
 MIDDLEWARE = [
@@ -50,10 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-INTERNAL_IPS = [
-    '127.0.0.1'
 ]
 
 ROOT_URLCONF = 'blogicum.urls'
@@ -137,12 +134,21 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Media
+
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# Email
+
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+
 EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
 
-CSRF_FAILURE_VIEW = 'pages.views.csrf_failure'
+# Login
 
-LOGIN_REDIRECT_URL = 'blog:index'
 LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'blog:index'
+
+# Error
+
+CSRF_FAILURE_VIEW = 'pages.views.csrf_failure'
